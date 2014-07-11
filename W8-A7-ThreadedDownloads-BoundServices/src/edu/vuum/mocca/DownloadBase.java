@@ -139,8 +139,10 @@ public class DownloadBase extends Activity {
          *  operations on the main thread, because it might cause your
          *  application to crash.
          */
-        StrictMode.ThreadPolicy policy =
-            new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+        if (false) {
+            StrictMode.ThreadPolicy policy =
+                    new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
     }
 }

@@ -7,6 +7,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
+import android.os.AsyncTask;
 
 /**
  * This is the main Activity that the program uses to start the
@@ -168,13 +169,22 @@ public class DownloadActivity extends DownloadBase {
             // DONE - You fill in here to use mDownloadCall to
             // download the image & then display it.
             if (mDownloadCall != null) {
-                try {
-                    // TODO: should be in background
-                    String results = mDownloadCall.downloadImage(uri);
-                    displayBitmap(results);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
+                // Create an AsyncTask for the two-way call so that it doesn't take too
+                // long in this, the UI thread.
+                new AsyncTask<Uri, Void, String> () {
+                    protected String doInBackground(Uri... uris) {
+                        try {
+                            return mDownloadCall.downloadImage(uris[0]);
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
+                    protected void onPostExecute(String filePath) {
+                        // This is executed in the UI thread.
+                        displayBitmap(filePath);
+                    }
+                }.execute(uri);
             }
             break;
 
