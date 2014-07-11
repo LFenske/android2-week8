@@ -72,7 +72,7 @@ public class DownloadActivity extends DownloadBase {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
             	Log.d(TAG, "ComponentName: " + name);
-                // DONE You fill in here to replace null with a call
+                // TODO You fill in here to replace null with a call
                 // to a generated stub method that converts the
                 // service parameter into an interface that can be
                 // used to make RPC calls to the Service.
@@ -105,7 +105,7 @@ public class DownloadActivity extends DownloadBase {
             @Override
 		public void onServiceConnected(ComponentName name,
                                                IBinder service) {
-                // DONE You fill in here to replace null with a call
+                // TODO You fill in here to replace null with a call
                 // to a generated stub method that converts the
                 // service parameter into an interface that can be
                 // used to make RPC calls to the Service.
@@ -140,7 +140,7 @@ public class DownloadActivity extends DownloadBase {
              */
             @Override
             public void sendPath(final String imagePathname) throws RemoteException {
-                // DONE - You fill in here to replace null with a new
+                // TODO - You fill in here to replace null with a new
                 // Runnable whose run() method displays the bitmap
                 // image whose pathname is passed as a parameter to
                 // sendPath().  Please use displayBitmap() defined in
@@ -166,7 +166,7 @@ public class DownloadActivity extends DownloadBase {
 
     	switch (view.getId()) {
         case R.id.bound_sync_button:
-            // DONE - You fill in here to use mDownloadCall to
+            // TODO - You fill in here to use mDownloadCall to
             // download the image & then display it.
             if (mDownloadCall != null) {
                 // Create an AsyncTask for the two-way call so that it doesn't take too
@@ -189,7 +189,7 @@ public class DownloadActivity extends DownloadBase {
             break;
 
         case R.id.bound_async_button:
-            // DONE - You fill in here to call downloadImage() on
+            // TODO - You fill in here to call downloadImage() on
             // mDownloadRequest, passing in the appropriate Uri and
             // callback.
             if (mDownloadRequest != null) {
